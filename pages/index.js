@@ -54,12 +54,16 @@ export default function Home() {
       <div className={`${styles['leaderboard-row']} bold`}>
         <div>Team Name</div>
         <div>Ranking</div>
+        <div>Wins</div>
+        <div>Losses</div>
         <div>Delta</div>
       </div>
       {leaderboard.map((row, i) => (
         <div key={i} className={styles['leaderboard-row']}>
           <div onClick={() => autoSet(row.name)}>{row.name}</div>
           <div>{row.elo.toFixed(2)}</div>
+          <div>{row.wins}</div>
+          <div>{row.losses}</div>
           <div className={row.lastEloDelta.toFixed(2) < 0 ? 'red' : 'green positive'}>
             {row.lastEloDelta.toFixed(2)}
           </div>
